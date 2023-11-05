@@ -48,7 +48,9 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_reredirects',
     'sphinx_design',
-    'notfound.extension'
+    'notfound.extension',
+    'sphinxawesome.highlighting',
+    'sphinxawesome.docsearch'
 ]
 
 source_suffix = ['.rst', '.md']
@@ -88,7 +90,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # a list of builtin themes.
 #
 # html_theme = "nature"
-html_theme = "bootstrap"
+html_theme = "sphinxawesome_theme"
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).
 # Path should be relative to the ``_static`` files directory.
