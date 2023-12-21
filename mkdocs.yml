@@ -1,0 +1,93 @@
+site_name: Awesome Media
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
+  language: en
+  icon:
+    logo: material/video-vintage
+  favicon: assets/favicon.ico
+  palette:
+# Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+# Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+# Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+#    - navigation.expand
+    - navigation.top
+    - toc.integrate
+# From PMM
+    - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+    - header.autohide
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+extra:
+  analytics:
+    provider: plausible
+    domain: homeserverlocal.ddns.net:8002
+    src: "https://awesome-media.net/js/script.js"
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    actions:
+      - accept
+      - reject
+      - manage
+    cookies:
+      analytics:
+        name: Plausible
+        checked: false
+copyright: >
+  Copyright &copy; 2023 anon_fawkes –
+  <a href="#__consent">Change cookie settings</a>
+plugins:
+  - privacy:
+      enabled: true
+      cache: true
+      cache_dir: .cache/plugins/privacy
+      assets: true
+      assets_fetch: true
+      assets_fetch_dir: assets/external
+      links: true
+      links_noopener: true
+  - search
+  - material-plausible
+nav:
+  - PLEX:
+    - Page 1: section/page-1.md
+    - Page 2: section/page-2.md
+  - JELLYFIN:
+    - Page 1: section/page-1.md
+    - Page 2: section/page-2.md
+  - EMBY:
+    - Page 1: section/page-1.md
+    - Page 2: section/page-2.md
