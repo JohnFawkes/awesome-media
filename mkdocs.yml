@@ -49,7 +49,7 @@ theme:
 extra:
   analytics:
     provider: plausible
-    domain: homeserverlocal.ddns.net:8002
+    domain: https://analytics.servernation.xyz
     src: "https://awesome-media.net/js/script.js"
   consent:
     title: Cookie consent
