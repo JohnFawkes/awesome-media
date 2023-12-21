@@ -49,7 +49,7 @@ theme:
 extra:
   analytics:
     provider: plausible
-    domain: awesome-media.net
+    domain: awesome-media.net/en/latest
 #    provider: plausible
 #    domain: awesome-media.net
 #    src: https://awesome-media.net/js/script.js
