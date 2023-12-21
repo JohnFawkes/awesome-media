@@ -82,7 +82,7 @@ plugins:
       links: true
       links_noopener: true
   - search
-  - material-plausible
+#  - material-plausible
 nav:
   - PLEX:
     - Page 1: section/page-1.md
