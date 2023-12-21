@@ -1,12 +1,15 @@
-myst-parser
-sphinx_inline_tabs
-sphinx-copybutton
-sphinx-reredirects
-sphinx_design
-sphinx-reload
-sphinx-notfound-page
-scipy
-numpy
-pandas
-matplotlib
-sphinxawesome-theme --pre
+mkdocs-material
+mkdocs-glightbox
+mkdocs-include-markdown-plugin
+jinja2
+markdown
+mkdocs
+mkdocs-material-extensions
+mkdocs-redirects
+pygments
+pymdown-extensions
+babel
+colorama
+paginate
+regex
+requests
