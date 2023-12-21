@@ -13,3 +13,4 @@ colorama
 paginate
 regex
 requests
+material-plausible-plugin
