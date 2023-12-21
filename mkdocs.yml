@@ -48,7 +48,7 @@ theme:
     - search.share
 extra:
   analytics:
-    provider: Plausible
+    provider: plausible
     domain: awesome-media.net
 #    provider: plausible
 #    domain: awesome-media.net
