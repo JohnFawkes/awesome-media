@@ -49,8 +49,8 @@ theme:
 extra:
   analytics:
     provider: plausible
-    domain: https://analytics.servernation.xyz
-    src: "https://awesome-media.net/js/script.js"
+    domain: analytics.servernation.xyz
+    src: https://awesome-media.net/js/script.js
   consent:
     title: Cookie consent
     description: >- 
