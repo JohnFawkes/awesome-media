@@ -49,7 +49,7 @@ theme:
 extra:
   analytics:
     provider: plausible
-    domain: analytics.servernation.xyz
+    domain: awesome-media.net
     src: https://awesome-media.net/js/script.js
   consent:
     title: Cookie consent
