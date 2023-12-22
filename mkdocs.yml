@@ -49,10 +49,10 @@ theme:
 extra:
   analytics:
     provider: plausible
-    domain: awesome-media.readthedocs.io
+    domain: awesome-media.net
 #    provider: plausible
 #    domain: awesome-media.net
-#    src: https://awesome-media.net/js/script.js
+    src: https://plausible.io/js/script.js
   consent:
     title: Cookie consent
     description: >- 
