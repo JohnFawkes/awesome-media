@@ -1,6 +1,6 @@
 site_name: Awesome Media
 theme:
-  custom_dir: docs/overrides
+#  custom_dir: docs/overrides
   name: material
   font:
     text: Roboto
