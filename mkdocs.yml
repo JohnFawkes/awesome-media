@@ -54,7 +54,7 @@ extra:
     domain: awesome-media.net
 #    provider: plausible
 #    domain: awesome-media.net
-    src: https://plausible.io/js/script.js
+#    src: https://plausible.io/js/script.js
   consent:
     title: Cookie consent
     description: >- 
@@ -68,7 +68,7 @@ extra:
       - manage
     cookies:
       analytics:
-        name: Plausible
+        name: plausible
         checked: false
 copyright: >
   Copyright &copy; 2023 anon_fawkes –
