@@ -54,7 +54,7 @@ extra:
     domain: awesome-media.net
 #    provider: plausible
 #    domain: awesome-media.net
-#    src: https://plausible.io/js/script.js
+    src: https://plausible.awesome-media.net/js/script.js
   consent:
     title: Cookie consent
     description: >- 
