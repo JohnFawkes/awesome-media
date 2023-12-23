@@ -2,6 +2,7 @@ site_name: Awesome Media
 theme:
 #  custom_dir: docs/overrides
   name: material
+  custom_dir: overrides
   font:
     text: Roboto
     code: Roboto Mono
