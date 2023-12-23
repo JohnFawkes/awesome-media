@@ -48,13 +48,22 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
+plugins:
+  - privacy:
+      enabled: true
+      cache: true
+      cache_dir: .cache/plugins/privacy
+      assets: true
+      assets_fetch: true
+      assets_fetch_dir: assets/external
+      links: true
+      links_noopener: true
+  - search
+  - material-plausible
 extra:
   analytics:
     provider: plausible
     domain: awesome-media.net
-#    provider: plausible
-#    domain: awesome-media.net
-    src: https://plausible.awesome-media.net/js/script.js
   consent:
     title: Cookie consent
     description: >- 
@@ -73,18 +82,6 @@ extra:
 copyright: >
   Copyright &copy; 2023 anon_fawkes –
   <a href="#__consent">Change cookie settings</a>
-plugins:
-  - privacy:
-      enabled: true
-      cache: true
-      cache_dir: .cache/plugins/privacy
-      assets: true
-      assets_fetch: true
-      assets_fetch_dir: assets/external
-      links: true
-      links_noopener: true
-  - search
-  - material-plausible
 nav:
   - PLEX:
     - Page 1: section/page-1.md
