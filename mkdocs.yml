@@ -1,5 +1,6 @@
 site_name: Awesome Media
 theme:
+  custom_dir: docs/overrides               --------------- 
   name: material
   font:
     text: Roboto
@@ -93,3 +94,4 @@ nav:
   - EMBY:
     - Page 1: section/page-1.md
     - Page 2: section/page-2.md
+
