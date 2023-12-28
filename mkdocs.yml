@@ -83,7 +83,7 @@ plugins:
       enabled: true
       repository: johnfawkes/awesome-media
       branch: main
-      token: !!python/object/apply:os.getenv ["GH_TOKEN"]
+#      token: !!python/object/apply:os.getenv ["GH_TOKEN"]
 extra:
   analytics:
     provider: plausible
