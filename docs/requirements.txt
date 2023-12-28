@@ -1,5 +1,4 @@
-#git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
-git+https://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@github.com/squidfunk/mkdocs-material-insiders.git
+git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
 mkdocs-glightbox
 mkdocs-include-markdown-plugin
 jinja2
