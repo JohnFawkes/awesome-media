@@ -1,4 +1,4 @@
-mkdocs-material
+git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
 mkdocs-glightbox
 mkdocs-include-markdown-plugin
 jinja2
@@ -15,3 +15,6 @@ regex
 requests
 material-plausible-plugin
 nodeenv
+pillow
+cairosvg
+urllib3
