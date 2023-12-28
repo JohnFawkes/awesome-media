@@ -62,7 +62,7 @@ plugins:
   - material-plausible
 extra:
   analytics:
-    provider: plausible
+    provider: custom
     domain: awesome-media.net
   feedback:
     title: Was this page helpful?
