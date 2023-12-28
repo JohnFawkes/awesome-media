@@ -1,13 +1,19 @@
 site_name: Awesome Media
+site_author: anon_fawkes
+site_description: Awesome Media is a list of all the awesome software related to plex, emby and jellyfin.
+site_url: https://awesome-media.net
+repo_name: awesome-media
+repo_url: https://github.com/johnfawkes/awesome-media
 theme:
   name: material
-#  custom_dir: overrides
+  custom_dir: overrides
   font:
     text: Roboto
     code: Roboto Mono
   language: en
   icon:
     logo: material/video-vintage
+    repo: fontawesome/brands/github
   favicon: assets/favicon.ico
   palette:
 # Palette toggle for automatic mode
@@ -45,8 +51,6 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
-    - content.action.edit
-    - content.action.view
 plugins:
   - privacy:
       enabled: true
@@ -72,6 +76,14 @@ plugins:
       debug_grid: true
       debug_grid_step: 32
       debug_color: yellow
+  - tags:
+      enabled: true
+      tags_slugify_separator: "-"
+  - git-committers:
+      enabled: true
+      repository: johnfawkes/awesome-media
+      branch: main
+      token: !!python/object/apply:os.getenv ["GH_TOKEN"]
 extra:
   analytics:
     provider: plausible
@@ -91,10 +103,18 @@ extra:
       analytics:
         name: plausible
         checked: false
+  social:
+    - icon: fontawesome/brands/discord
+      link: "https://discordapp.com/users/732333413008277504"
+      name: "@anonfawkes"
+    - icon: fontawesome/brands/github
+      link: "https://github.com/johnfawkes"
+      name: JohnFawkes on GitHub
 copyright: >
   Copyright &copy; 2023 anon_fawkes –
   <a href="#__consent">Change cookie settings</a>
 nav:
+  - HOME: index.md
   - PLEX:
     - Page 1: section/page-1.md
     - Page 2: section/page-2.md
