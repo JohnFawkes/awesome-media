@@ -1,6 +1,4 @@
----
-comments: true
----
+
 
 # Welcome to Awesome-Media
 

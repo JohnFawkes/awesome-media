@@ -1,12 +1,12 @@
 site_name: Awesome Media
 site_author: anon_fawkes
 site_description: Awesome Media is a list of all the awesome software related to plex, emby and jellyfin.
-site_url: https://awesome-media.net
+site_url: https://awesome-media.net/en/latest
 repo_name: awesome-media
 repo_url: https://github.com/johnfawkes/awesome-media
 theme:
   name: material
-  custom_dir: overrides
+#  custom_dir: overrides
   font:
     text: Roboto
     code: Roboto Mono
@@ -53,8 +53,8 @@ theme:
     - search.share
 plugins:
   - privacy:
-      enabled: true
-      cache: true
+      enabled: false
+      cache: false
       cache_dir: .cache/plugins/privacy
       assets: true
       assets_fetch: true
@@ -87,7 +87,8 @@ plugins:
 extra:
   analytics:
     provider: plausible
-    domain: awesome-media.net
+    domain: awesome-media.net/en/latest
+    src: "https://analytics.servernation.xyz/js/script.js"
   consent:
     title: Cookie consent
     description: >-
@@ -119,9 +120,9 @@ nav:
     - Page 1: section/page-1.md
     - Page 2: section/page-2.md
   - JELLYFIN:
-    - Page 1: section/page-1.md
-    - Page 2: section/page-2.md
+    - Page 1: section/jelly-page-1.md
+    - Page 2: section/jelly-page-2.md
   - EMBY:
-    - Page 1: section/page-1.md
-    - Page 2: section/page-2.md
+    - Page 1: section/emby-page-1.md
+    - Page 2: section/emby-page-2.md
 
