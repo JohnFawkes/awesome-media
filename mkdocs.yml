@@ -6,7 +6,7 @@ repo_name: awesome-media
 repo_url: https://github.com/johnfawkes/awesome-media
 theme:
   name: material
-#  custom_dir: overrides
+  custom_dir: overrides
   font:
     text: Roboto
     code: Roboto Mono
