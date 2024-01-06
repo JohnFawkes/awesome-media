@@ -1,7 +1,7 @@
 site_name: Awesome Media
 site_author: anon_fawkes
 site_description: Awesome Media is a list of all the awesome software related to plex, emby and jellyfin.
-site_url: https://awesome-media.net/en/latest
+site_url: https://awesome-media.net
 repo_name: awesome-media
 repo_url: https://github.com/johnfawkes/awesome-media
 theme:
@@ -86,7 +86,7 @@ plugins:
 extra:
   analytics:
     provider: plausible
-    domain: awesome-media.net/en/latest
+    domain: awesome-media.net
     src: "https://analytics.servernation.xyz/js/script.js"
 #  consent:
 #    title: Cookie consent
