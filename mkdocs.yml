@@ -83,27 +83,26 @@ plugins:
       enabled: true
       repository: johnfawkes/awesome-media
       branch: main
-#      token: !!python/object/apply:os.getenv ["GH_TOKEN"]
 extra:
   analytics:
     provider: plausible
     domain: awesome-media.net/en/latest
     src: "https://analytics.servernation.xyz/js/script.js"
-  consent:
-    title: Cookie consent
-    description: >-
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
-    actions:
-      - accept
-      - reject
-      - manage
-    cookies:
-      analytics:
-        name: plausible
-        checked: false
+#  consent:
+#    title: Cookie consent
+#    description: >-
+#      We use cookies to recognize your repeated visits and preferences, as well
+#      as to measure the effectiveness of our documentation and whether users
+#      find what they're searching for. With your consent, you're helping us to
+#      make our documentation better.
+#    actions:
+#      - accept
+#      - reject
+#      - manage
+#    cookies:
+#      analytics:
+#        name: plausible
+#        checked: false
   social:
     - icon: fontawesome/brands/discord
       link: "https://discordapp.com/users/732333413008277504"
@@ -113,7 +112,7 @@ extra:
       name: JohnFawkes on GitHub
 copyright: >
   Copyright &copy; 2023 anon_fawkes –
-  <a href="#__consent">Change cookie settings</a>
+#  <a href="#__consent">Change cookie settings</a>
 nav:
   - HOME: index.md
   - PLEX:
