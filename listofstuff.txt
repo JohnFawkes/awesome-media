@@ -1,0 +1,15 @@
+Sonarr
+Radarr
+Plex-Meta-Manager
+Overseerr
+Prowlarr
+OMBI
+Tautulli
+Tdarr
+Bazarr
+Lidarr
+TitleCardMaker
+Wizarr
+Wrapperr
+Maintainrr
+medialytics

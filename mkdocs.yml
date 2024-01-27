@@ -1,0 +1,119 @@
+site_name: Awesome Media
+site_author: anon_fawkes
+site_description: Awesome Media is a list of all the awesome software related to plex, emby and jellyfin.
+site_url: https://awesome-media.net
+repo_name: awesome-media
+repo_url: https://github.com/johnfawkes/awesome-media
+theme:
+  name: material
+  custom_dir: overrides
+  font:
+    text: Roboto
+    code: Roboto Mono
+  language: en
+  icon:
+    logo: material/video-vintage
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
+  palette:
+# Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+# Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+# Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.top
+    - toc.integrate
+    - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+    - header.autohide
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+plugins:
+  - privacy:
+      enabled: false
+      cache: false
+      cache_dir: .cache/plugins/privacy
+      assets: true
+      assets_fetch: true
+      assets_fetch_dir: assets/external
+      links: true
+      links_noopener: true
+  - search
+  - material-plausible
+  - social:
+      enabled: true
+      cache: true
+      cache_dir: .cache/plugins/social
+      cards: true
+      log: true
+      cards_dir: assets/images/social
+      cards_layout_dir: layouts
+      debug: true
+      debug_on_build: false
+      debug_grid: true
+      debug_grid_step: 32
+      debug_color: yellow
+  - tags:
+      enabled: true
+      tags_slugify_separator: "-"
+  - git-committers:
+      enabled: true
+      cache_dir: .cache/plugins/git-commiters
+      repository: johnfawkes/awesome-media
+      branch: main
+      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+extra:
+  analytics:
+    provider: plausible
+    domain: awesome-media.net
+    src: "https://analytics.servernation.xyz/js/script.js"
+  social:
+    - icon: fontawesome/brands/discord
+      link: "https://discordapp.com/users/732333413008277504"
+      name: "@anonfawkes"
+    - icon: fontawesome/brands/github
+      link: "https://github.com/johnfawkes"
+      name: JohnFawkes on GitHub
+copyright: >
+  Copyright &copy; 2023 anon_fawkes –
+nav:
+  - HOME: index.md
+  - BAZARR: section/bazarr.md
+  - LIDARR: section/lidarr.md
+  - MAINTAINRR: section/maintainrr.md
+  - MEDIALYTICS: section/medialytics.md
+  - OMBI: section/ombi.md
+  - OVERSEERR: section/overseerr.md
+  - PLEX META MANAGER: section/pmm.md
+  - PROWLARR: section/prowlarr.md
+  - RADARR: section/radarr.md
+  - SONARR: section/sonarr.md
+  - TAUTULLI: section/tautulli.md
+  - TITLE CARD MANAGER: section/tcm.md
+  - TDARR: section/tdarr.md
+  - WIZARR: section/wizarr.md
+  - WRAPPERR: section/wrapperr.md
+
