@@ -85,6 +85,7 @@ plugins:
       repository: johnfawkes/awesome-media
       branch: main
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+  - 
 extra:
   analytics:
     provider: plausible

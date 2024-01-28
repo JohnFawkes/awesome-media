@@ -19,3 +19,4 @@ pillow
 cairosvg
 urllib3
 mkdocs-git-committers-plugin-2
+mkdocs-open-in-new-tab
