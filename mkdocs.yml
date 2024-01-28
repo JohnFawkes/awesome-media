@@ -79,7 +79,7 @@ plugins:
   - tags:
       enabled: true
       tags_slugify_separator: "-"
-  - git-commiters:
+  - git-committers:
       enabled: true
       cache_dir: .cache/plugins/git-commiters
       repository: johnfawkes/awesome-media
