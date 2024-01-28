@@ -106,15 +106,18 @@ nav:
   - LIDARR: section/lidarr.md
   - MAINTAINRR: section/maintainrr.md
   - MEDIALYTICS: section/medialytics.md
+  - NOTIFIARR: section/notifiarr.md
   - OMBI: section/ombi.md
   - OVERSEERR: section/overseerr.md
   - PLEX META MANAGER: section/pmm.md
   - PROWLARR: section/prowlarr.md
+  - PUBLIER: section/publier.md
   - RADARR: section/radarr.md
   - SONARR: section/sonarr.md
   - TAUTULLI: section/tautulli.md
   - TITLE CARD MANAGER: section/tcm.md
   - TDARR: section/tdarr.md
+  - TOOLBARR: section/toolbarr.md
   - WIZARR: section/wizarr.md
   - WRAPPERR: section/wrapperr.md
 
