@@ -79,7 +79,7 @@ plugins:
   - tags:
       enabled: true
       tags_slugify_separator: "-"
-  - git-committers:
+  - git-commiters:
       enabled: true
       cache_dir: .cache/plugins/git-commiters
       repository: johnfawkes/awesome-media
@@ -99,7 +99,7 @@ extra:
       link: "https://github.com/johnfawkes"
       name: JohnFawkes on GitHub
 copyright: >
-  Copyright &copy; 2023 anon_fawkes –
+  Copyright &copy; 2023 anon_fawkes
 nav:
   - HOME: index.md
   - BAZARR: section/bazarr.md
