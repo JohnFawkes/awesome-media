@@ -4,6 +4,8 @@ Awesome Media is here to compile the best and most awesome self hosted and hoste
 
 # Media Servers
 
-* [Plex](https://plex.tv)
-* [Jellyfin](https://jellyfin.org)
-* [Emby](https://emby.media)
+:simple-plex:{ .simpleplex } [Plex](https://plex.tv)
+
+:simple-jellyfin:{ .simplejellyfin } [Jellyfin](https://jellyfin.org)
+
+:simple-emby:{ .simpleemby } [Emby](https://emby.media)

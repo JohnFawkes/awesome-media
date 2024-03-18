@@ -120,6 +120,8 @@ markdown_extensions:
   - footnotes
 #  - toc:
 #      permalink: true
+extra_css:
+  - stylesheets/extra.css
 nav:
 #  - AWESOME MEDIA:
 #    - index.md
