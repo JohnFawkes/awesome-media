@@ -79,12 +79,6 @@ plugins:
   - tags:
       enabled: true
       tags_slugify_separator: "-"
-  - git-committers:
-      enabled: true
-      cache_dir: .cache/plugins/git-commiters
-      repository: johnfawkes/awesome-media
-      branch: main
-      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
   - open-in-new-tab
 extra:
   analytics:
@@ -100,24 +94,55 @@ extra:
       name: JohnFawkes on GitHub
 copyright: >
   Copyright &copy; 2023 anon_fawkes
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - footnotes
+#  - toc:
+#      permalink: true
 nav:
-  - HOME: index.md
-  - BAZARR: section/bazarr.md
-  - LIDARR: section/lidarr.md
-  - MAINTAINRR: section/maintainrr.md
-  - MEDIALYTICS: section/medialytics.md
-  - NOTIFIARR: section/notifiarr.md
-  - OMBI: section/ombi.md
-  - OVERSEERR: section/overseerr.md
-  - PLEX META MANAGER: section/pmm.md
-  - PROWLARR: section/prowlarr.md
-  - PUBLIER: section/publier.md
-  - RADARR: section/radarr.md
-  - SONARR: section/sonarr.md
-  - TAUTULLI: section/tautulli.md
-  - TITLE CARD MANAGER: section/tcm.md
-  - TDARR: section/tdarr.md
-  - TOOLBARR: section/toolbarr.md
-  - WIZARR: section/wizarr.md
-  - WRAPPERR: section/wrapperr.md
-
+#  - AWESOME MEDIA:
+#    - index.md
+  - THIRD PARTY SOFTWARE:
+    - Bazarr: section/bazarr.md
+    - Lidarr: section/lidarr.md
+    - Maintainarr: section/maintainrr.md
+    - Medialytics: section/medialytics.md
+    - Notifiarr: section/notifiarr.md
+    - Ombi: section/ombi.md
+    - Overseerr: section/overseerr.md
+    - Plex Meta Manager: section/pmm.md
+    - Prowlarr: section/prowlarr.md
+    - Publier: section/publier.md
+    - Radarr: section/radarr.md
+    - Sonarr: section/sonarr.md
+    - Tautulli: section/tautulli.md
+    - Title Card Maker: section/tcm.md
+    - Tdarr: section/tdarr.md
+    - Toolbarr: section/toolbarr.md
+    - Wizarr: section/wizarr.md
+    - Wraperr: section/wrapperr.md
+  - SCRIPTS:
+    - Overview: section/scriptoverview.md
+  - DOWNLOADING POSTERS:
+    - Overview: section/posteroverview.md
