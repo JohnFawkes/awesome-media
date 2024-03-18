@@ -42,7 +42,7 @@ theme:
     - navigation.instant.progress
     - navigation.tracking
     - navigation.top
-    - toc.integrate
+#    - toc.integrate
     - content.code.annotate
     - content.tabs.link
     - content.code.copy
@@ -137,11 +137,14 @@ nav:
     - Prowlarr: section/prowlarr.md
     - Publier: section/publier.md
     - Radarr: section/radarr.md
+    - Recyclarr: section/recyclarr.md
     - Sonarr: section/sonarr.md
     - Tautulli: section/tautulli.md
     - Title Card Maker: section/tcm.md
     - Tdarr: section/tdarr.md
+    - Themerr: section/themerr.md
     - Toolbarr: section/toolbarr.md
+    - TRaSH: section/trash.md
     - Wizarr: section/wizarr.md
     - Wraperr: section/wrapperr.md
   - SCRIPTS:
