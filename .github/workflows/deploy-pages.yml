@@ -1,25 +1,103 @@
-name: Publish docs via GitHub Pages
+name: Build GitHub Pages
 on:
   push:
     branches:
       - main
+    paths:
+      - '.'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
-jobs:
-  build:
-    name: Deploy docs
+jobs: 
+  build_mkdocs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+      - run: pip install \
+            mkdocs-material \
+            mkdocs-glightbox \
+            mkdocs-include-markdown-plugin \
+            jinja2 \
+            markdown \
+            mkdocs \
+            mkdocs-material-extensions \
+            mkdocs-redirects \
+            pygments \
+            pymdown-extensions 
+            babel \
+            colorama \
+            paginate \
+            regex \
+            requests \
+            material-plausible-plugin \
+            nodeenv \
+            pillow \
+            cairosvg \
+            urllib3 \
+            mkdocs-git-committers-plugin-2 \
+            mkdocs-open-in-new-tab \
+            mkdocs-abs-rel-plugin \
+            mkdocs-add-number-plugin \
+            mkdocs-autolinks-plugin \
+            mkdocs-autorefs \
+            mkdocs-awesome-pages-plugin \
+            mkdocs-codeinclude-plugin \
+            mkdocs-enumerate-headings-plugin \
+            mkdocs-exclude \
+            mkdocs-embed-external-markdown \
+            mkdocs-git-authors-plugin \
+            mkdocs-git-committers-plugin \
+            mkdocs-git-revision-date-localized-plugin \
+            mkdocs-img2fig-plugin \
+            mkdocs-kroki-plugin \
+            mkdocs-localsearch \
+            mkdocs-macros-plugin \
+            mkdocs-markdownextradata-plugin \
+            mkdocs-merge \
+            mkdocs-minify-plugin \
+            mkdocs-monorepo-plugin \
+            mkdocs-multirepo-plugin \
+            mkdocs_pymdownx_material_extras \
+            mkdocs-safe-text-plugin \
+            mkdocs-simple-hooks \
+            mkdocs-render-swagger-plugin \
+            mkdocs-versioning \
+            mkdocs-with-confluence \
+            mkdocstrings \
+            mkdocs-rtd-dropdown \
+            neoteroi-mkdocs \
+            markdown-include \
+            pyyaml==5.3.1 \
+            fontawesome-markdown@https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+      - run: mkdocs gh-deploy --config-file mkdocs.yml --force
+
+  deploy_mkdocs:
+    needs: build_mkdocs
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v2
-
-      - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          CUSTOM_DOMAIN: awesome-media.net
-          CONFIG_FILE: mkdocs.yml
-          EXTRA_PACKAGES: build-base
-          # GITHUB_DOMAIN: github.myenterprise.com
-          REQUIREMENTS: docs/requirements.txt
-      - run: mkdocs gh-deploy --force
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
