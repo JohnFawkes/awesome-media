@@ -4,54 +4,57 @@ site_description: Awesome Media is a list of all the awesome software related to
 site_url: https://awesome-media.net
 repo_name: awesome-media
 repo_url: https://github.com/johnfawkes/awesome-media
+
 theme:
   name: material
+  favicon: assets/favicon.ico
   custom_dir: overrides
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Open Sans
+    code: Fira Code
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+    - announce.dismiss
+    #    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.indexes
+    - toc.integrate
+    - content.tooltips
   language: en
   icon:
     logo: material/video-vintage
     repo: fontawesome/brands/github
-  favicon: assets/favicon.ico
   palette:
-# Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-# Palette toggle for light mode
+    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: light blue
       accent: light blue
       toggle:
         icon: material/brightness-7
-        name: Switch to dark mode
-# Palette toggle for dark mode
+        name: Switch to Dark Mode
+    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: light blue
       accent: light blue
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
-  features:
-    - navigation.instant
-    - navigation.instant.progress
-    - navigation.tracking
-    - navigation.top
-#    - toc.integrate
-    - content.code.annotate
-    - content.tabs.link
-    - content.code.copy
-    - header.autohide
-    - navigation.footer
-    - search.suggest
-    - search.highlight
-    - search.share
+        name: Switch to Light Mode
+hooks:
+  - hooks/copyright.py
 plugins:
+  - macros: {}
   - privacy:
       enabled: false
       cache: false
@@ -59,28 +62,42 @@ plugins:
       assets: true
       assets_fetch: true
       assets_fetch_dir: assets/external
-      links: true
-      links_noopener: true
-  - search
+  # INSIDERS      links: true
+  # INSIDERS      links_noopener: true
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - include-markdown
+  - glightbox
   - material-plausible
+  - render_swagger
   - social:
       enabled: true
-      cache: true
+      # INSIDERS      cache: true
       cache_dir: .cache/plugins/social
       cards: true
-      log: true
+      # INSIDERS      log: true
       cards_dir: assets/images/social
-      cards_layout_dir: layouts
-      debug: true
-      debug_on_build: false
-      debug_grid: true
-      debug_grid_step: 32
-      debug_color: yellow
+  # INSIDERS      cards_layout_dir: layouts
+  # INSIDERS      debug: true
+  # INSIDERS      debug_on_build: false
+  # INSIDERS      debug_grid: true
+  # INSIDERS      debug_grid_step: 32
+  # INSIDERS      debug_color: yellow
   - tags:
       enabled: true
-      tags_slugify_separator: "-"
+  # INSIDERS      tags_slugify_separator: "-"
+  - git-committers:
+      enabled: true
+      cache_dir: .cache/plugins/git-commiters
+      repository: johnfawkes/awesome-media
+      branch: main
+      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
   - open-in-new-tab
+
 extra:
+  generator: true
+  homepage: https://awesome-media.net/
   analytics:
     provider: plausible
     domain: awesome-media.net
@@ -92,14 +109,15 @@ extra:
     - icon: fontawesome/brands/github
       link: "https://github.com/johnfawkes"
       name: JohnFawkes on GitHub
-copyright: >
-  Copyright &copy; 2023 anon_fawkes
+
 markdown_extensions:
   - admonition
   - attr_list
   - def_list
   - md_in_html
+  - neoteroi.cards
   - pymdownx.critic
+  - pymdownx.tilde
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -118,36 +136,56 @@ markdown_extensions:
       custom_checkbox: true
   - tables
   - footnotes
-#  - toc:
-#      permalink: true
-extra_css:
-  - stylesheets/extra.css
+#extra_css:
+#  - stylesheets/cards.css
+#  - stylesheets/extra.css
+#  - stylesheets/termynal.css
+#  - stylesheets/custom.css
+
+#extra_javascript:
+#  - stylesheets/termynal.js
+#  - stylesheets/custom.js
+#  - stylesheets/branch.js
 nav:
-#  - AWESOME MEDIA:
-#    - index.md
+  - AWESOME MEDIA: index.md
   - THIRD PARTY SOFTWARE:
-    - Bazarr: section/bazarr.md
-    - Lidarr: section/lidarr.md
-    - Maintainarr: section/maintainrr.md
-    - Medialytics: section/medialytics.md
-    - Notifiarr: section/notifiarr.md
-    - Ombi: section/ombi.md
-    - Overseerr: section/overseerr.md
-    - Plex Meta Manager: section/pmm.md
-    - Prowlarr: section/prowlarr.md
-    - Publier: section/publier.md
-    - Radarr: section/radarr.md
-    - Recyclarr: section/recyclarr.md
-    - Sonarr: section/sonarr.md
-    - Tautulli: section/tautulli.md
-    - Title Card Maker: section/tcm.md
-    - Tdarr: section/tdarr.md
-    - Themerr: section/themerr.md
-    - Toolbarr: section/toolbarr.md
-    - TRaSH: section/trash.md
-    - Wizarr: section/wizarr.md
-    - Wraperr: section/wrapperr.md
+      - Bazarr: section/bazarr.md
+      - Flixpatrol Top 10 on Trakt: section/flixpatrol-to-trakt.md
+      - Kometa: section/kometa.md
+      - Lidarr: section/lidarr.md
+      - Maintainarr: section/maintainrr.md
+      - Medialytics: section/medialytics.md
+      - Notifiarr: section/notifiarr.md
+      - Ombi: section/ombi.md
+      - Overseerr: section/overseerr.md
+      - PlexAniSync: section/plexanisync.md
+      - PlexAutoLangauges: section/plexautolanguages.md
+      - PlexTraktSync: section/plextraktsync.md
+      - Prowlarr: section/prowlarr.md
+      - Publier: section/publier.md
+      - Radarr: section/radarr.md
+      - Recyclarr: section/recyclarr.md
+      - Sonarr: section/sonarr.md
+      - Tautulli: section/tautulli.md
+      - Title Card Maker: section/tcm.md
+      - Tdarr: section/tdarr.md
+      - Toolbarr: section/toolbarr.md
+      - TRaSH: section/trash.md
+      - Wizarr: section/wizarr.md
+      - Wraperr: section/wrapperr.md
   - SCRIPTS:
-    - Overview: section/scriptoverview.md
+      - Overview: section/scripts/scriptoverview.md
+      - Kometa Scripts:
+          - Romaji Renamer: section/scripts/kometa/romajirenamer.md
+          - PATTRMM: section/scripts/kometa/pattrmm.md
+      - Standalone Scripts:
+          - Placeholder: ""
+  # BULLMOOSE AND CHAZ
   - DOWNLOADING POSTERS:
-    - Overview: section/posteroverview.md
+      - Overview: section/posters/posteroverview.md
+      - Kometa Poster Helpers:
+          - Placeholder: ""
+      - Standalone Poster Scripts:
+          - Plex Poster Set Helper: section/posters/plex-poster-set-helper.md
+          - Daps: section/posters/daps.md
+### qBitManager  Upgradinatorr   reTraktArr   JBOPS

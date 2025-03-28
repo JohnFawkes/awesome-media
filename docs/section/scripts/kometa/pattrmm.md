@@ -1,0 +1,3 @@
+# PATTRMM
+
+[PATTRMM](https://github.com/InsertDisc/pattrmm) Kometa helper script for a chronological Returning Soon collection with dates. PATTRMM (Plex Assistant To The Regional Meta Manager) is a python script that automates a 'Returning Soon' Trakt list in chronological order by date and matching metadata and overlay file for use in Kometa. Extensions have been added to further PATTRMM's capabilities.
