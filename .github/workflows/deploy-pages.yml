@@ -1,53 +1,29 @@
-name: Deploy MkDocs site to GitHub Pages
-
+name: ci 
 on:
   push:
     branches:
+      - master 
       - main
-
+permissions:
+  contents: write
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
-
-      - name: Install dependencies
-        run: |
-          pip install mkdocs mkdocs-material
-
-      - name: Build MkDocs site
-        run: |
-          mkdocs build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./site
-
   deploy:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    needs: build
-
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache 
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material mkdocs-glightbox mkdocs-include-markdown-plugin jinja2 markdown mkdocs mkdocs-material-extensions mkdocs-redirects pygments pymdown-extensions colorama paginate regex requests material-plausible-plugin nodeenv pillow cairosvg urllib3 mkdocs-git-committers-plugin-2 mkdocs-open-in-new-tab mkdocs-abs-rel-plugin mkdocs-add-number-plugin mkdocs-autolinks-plugin mkdocs-autorefs mkdocs-awesome-pages-plugin mkdocs-codeinclude-plugin mkdocs-enumerate-headings-plugin mkdocs-exclude mkdocs-embed-external-markdown mkdocs-git-authors-plugin mkdocs-git-committers-plugin mkdocs-git-revision-date-localized-plugin mkdocs-img2fig-plugin mkdocs-kroki-plugin mkdocs-localsearch mkdocs-macros-plugin mkdocs-markdownextradata-plugin mkdocs-merge mkdocs-minify-plugin mkdocs-monorepo-plugin mkdocs-multirepo-plugin mkdocs_pymdownx_material_extras mkdocs-safe-text-plugin mkdocs-simple-hooks mkdocs-render-swagger-plugin mkdocs-versioning mkdocs-with-confluence mkdocstrings mkdocs-material mkdocs-rtd-dropdown neoteroi-mkdocs markdown-include pyyaml==5.3.1 fontawesome-markdown @ https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+      - run: mkdocs gh-deploy --force
