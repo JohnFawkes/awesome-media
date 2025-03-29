@@ -1,5 +1,5 @@
-git+https://${TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
-mkdocs-material
+git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+#mkdocs-material
 mkdocs-glightbox
 mkdocs-include-markdown-plugin
 jinja2
@@ -54,5 +54,7 @@ mkdocs-material
 mkdocs-rtd-dropdown
 neoteroi-mkdocs
 markdown-include
-pyyaml==5.3.1
-fontawesome-markdown @ https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+pyyaml
+fontawesome-markdown@https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+pngquant
+mkdocs-material[imaging]
