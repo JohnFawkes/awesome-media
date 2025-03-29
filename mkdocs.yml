@@ -91,6 +91,15 @@ plugins:
       debug_grid_step: 32
       debug_color: yellow
   - open-in-new-tab
+  - privacy:
+      enabled: true
+      cache: true
+      cache_dir: .cache/plugins/privacy
+      assets: true
+      assets_fetch: true
+      assets_fetch_dir: assets/external
+      links: true
+      links_noopener: true
 
   # CI=true mkdocs build
   - group:
@@ -102,12 +111,10 @@ plugins:
             enable_creation_date: false
             enabled: true
         - git-committers:
-          enabled: true
-          cache_dir: .cache/plugins/git-commiters
-          repository: johnfawkes/awesome-media
-          branch: main
-          token:
-            !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+            enabled: true
+            cache_dir: .cache/plugins/git-commiters
+            repository: johnfawkes/awesome-media
+            branch: main
         - git-authors:
             enabled: true
 
@@ -127,15 +134,6 @@ plugins:
             optimize_jpg_progressive: true
             print_gain: true
             print_gain_summary: true
-        - privacy:
-          enabled: false
-          cache: false
-          cache_dir: .cache/plugins/privacy
-          assets: true
-          assets_fetch: true
-          assets_fetch_dir: assets/external
-          links: true
-          links_noopener: true
 
 extra:
   generator: true
