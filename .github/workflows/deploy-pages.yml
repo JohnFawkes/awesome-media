@@ -24,6 +24,8 @@ jobs:
           python-version: 3.9
           cache: "pip"
       - run: pip install -r docs/requirements.txt
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Deploy mkdocs
         run: mkdocs gh-deploy --config-file mkdocs.yml --force
 
