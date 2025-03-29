@@ -2,8 +2,10 @@ name: Tag New Version
 
 on:
   push:
-    branches: [main]
-
+    branches:
+      - main
+      - dev
+      - production
 jobs:
   tag:
     runs-on: ubuntu-latest
