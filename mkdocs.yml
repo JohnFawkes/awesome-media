@@ -57,7 +57,6 @@ plugins:
   - tags:
       enabled: true
       tags: true
-      tags_slugify_separator: -
       tags_slugify_format: "tag:{slug}"
       tags_hierarchy: true
       tags_name_property: tags
