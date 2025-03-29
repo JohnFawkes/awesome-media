@@ -1,4 +1,4 @@
-#git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
 mkdocs-material
 mkdocs-glightbox
 mkdocs-include-markdown-plugin
