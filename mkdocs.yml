@@ -17,7 +17,6 @@ theme:
     - content.tabs.link
     - content.code.copy
     - announce.dismiss
-    #    - navigation.footer
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
@@ -55,15 +54,22 @@ hooks:
   - hooks/copyright.py
 plugins:
   - macros: {}
-  - privacy:
-      enabled: false
-      cache: false
-      cache_dir: .cache/plugins/privacy
-      assets: true
-      assets_fetch: true
-      assets_fetch_dir: assets/external
-  # INSIDERS      links: true
-  # INSIDERS      links_noopener: true
+  - tags:
+      enabled: true
+      tags: true
+      tags_slugify_separator: -
+      tags_slugify_format: "tag:{slug}"
+      tags_hierarchy: true
+      tags_name_property: tags
+      tags_name_variable: tags
+      listings: true
+      listings_directive: material/tags
+      shadow: false
+      shadow_on_serve: true
+      shadow_tags_prefix: _
+      export: true
+      export_file: tags.json
+      export_only: true
   - search:
       lang: en
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -73,27 +79,66 @@ plugins:
   - render_swagger
   - social:
       enabled: true
-      # INSIDERS      cache: true
+      cache: true
       cache_dir: .cache/plugins/social
       cards: true
-      # INSIDERS      log: true
+      log: true
       cards_dir: assets/images/social
-  # INSIDERS      cards_layout_dir: layouts
-  # INSIDERS      debug: true
-  # INSIDERS      debug_on_build: false
-  # INSIDERS      debug_grid: true
-  # INSIDERS      debug_grid_step: 32
-  # INSIDERS      debug_color: yellow
+      cards_layout_dir: layouts
+      debug: true
+      debug_on_build: false
+      debug_grid: true
+      debug_grid_step: 32
+      debug_color: yellow
   - tags:
       enabled: true
-  # INSIDERS      tags_slugify_separator: "-"
-  - git-committers:
-      enabled: true
-      cache_dir: .cache/plugins/git-commiters
-      repository: johnfawkes/awesome-media
-      branch: main
-      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+      tags_slugify_separator: "-"
   - open-in-new-tab
+
+  # CI=true mkdocs build
+  - group:
+      enabled: !ENV CI
+      plugins:
+        - git-revision-date-localized:
+            type: date
+            fallback_to_build_date: false
+            enable_creation_date: false
+            enabled: true
+        - git-committers:
+          enabled: true
+          cache_dir: .cache/plugins/git-commiters
+          repository: johnfawkes/awesome-media
+          branch: main
+          token:
+            !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+        - git-authors:
+            enabled: true
+
+  # INSIDERS=true mkdocs build
+  - group:
+      enabled: !ENV INSIDERS
+      plugins:
+        - optimize:
+            enabled: true
+            cache: true
+            cache_dir: .cache/plugins/optimize
+            optimize_png: true
+            optimize_png_speed: 4
+            optimize_png_strip: true
+            optimize_jpg: true
+            optimize_jpg_quality: 60
+            optimize_jpg_progressive: true
+            print_gain: true
+            print_gain_summary: true
+        - privacy:
+          enabled: false
+          cache: false
+          cache_dir: .cache/plugins/privacy
+          assets: true
+          assets_fetch: true
+          assets_fetch_dir: assets/external
+          links: true
+          links_noopener: true
 
 extra:
   generator: true
