@@ -1,7 +1,7 @@
 site_name: Awesome Media
 site_author: anon_fawkes
 site_description: Awesome Media is a list of all the awesome software related to plex, emby and jellyfin.
-site_url: https://awesome-media.net
+site_url: https://awesome-media.net/
 repo_name: awesome-media
 repo_url: https://github.com/johnfawkes/awesome-media
 
@@ -105,7 +105,15 @@ plugins:
       assets_fetch_dir: assets/external
       links: true
       links_noopener: true
-
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ""
+      canonical_version: latest
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
   # CI=true mkdocs build
   - group:
       enabled: !ENV CI
@@ -149,6 +157,10 @@ extra:
     - icon: fontawesome/brands/github
       link: "https://github.com/johnfawkes"
       name: JohnFawkes on GitHub
+  version:
+    provider: mike
+    alias: true
+    default: latest
 
 markdown_extensions:
   - admonition

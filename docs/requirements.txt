@@ -55,3 +55,4 @@ markdown-include
 pyyaml
 fontawesome-markdown@https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
 mkdocs-material[imaging]
+mike
