@@ -5,6 +5,10 @@ name: Deploy
 
 env:
   PYTHON_VERSION: "3.9"
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
+  INSIDERS: true
+  CI: true
 
 on:
   push:
@@ -13,6 +17,11 @@ on:
       - main
       # Release branches have names like 0.8.x, 0.9.x, ...
       - "[0-9]+.[0-9]+.x"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+  repository_dispatch:
   create:
 
 jobs:
@@ -52,11 +61,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r docs/requirements.txt
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
-          INSIDERS: true
-          CI: true
 
       - name: Determine versioning parameters
         id: determine-versioning
@@ -78,19 +82,14 @@ jobs:
       - name: Deploy
         if: ${{ env.PH_DOCS_VERSION }} != null
         run: |
-          # Publishing implies creating a git commit on the production branch, 
+          # Publishing implies creating a git commit on the gh-pages branch, 
           # We will need to create a user for this at some point
-          git config user.name <GitHub user>
-          git config user.email <GitHub user email>
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/production:refs/remotes/origin/production
+          git config user.name JohnFawkes
+          git config user.email skaterdudebradley@gmail.com
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/ghpages
           mike deploy \
             --update-aliases \
-            --branch production \
             --push \
+            --remote origin \
             ${{ env.PH_DOCS_VERSION }} \
             ${{ env.PH_DOCS_ALIAS }}
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
-          INSIDERS: true
-          CI: true
