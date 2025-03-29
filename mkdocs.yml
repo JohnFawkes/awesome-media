@@ -203,14 +203,17 @@ nav:
       - PlexTraktSync: section/plextraktsync.md
       - Prowlarr: section/prowlarr.md
       - Publier: section/publier.md
+      - qBitManage: section/qbitmanage.md
       - Radarr: section/radarr.md
       - Recyclarr: section/recyclarr.md
+      - ReTraktarr: section/retraktarr.md
       - Sonarr: section/sonarr.md
       - Tautulli: section/tautulli.md
       - Title Card Maker: section/tcm.md
       - Tdarr: section/tdarr.md
       - Toolbarr: section/toolbarr.md
       - TRaSH: section/trash.md
+      - Upgradinatorr: section/upgradinatorr.md
       - Wizarr: section/wizarr.md
       - Wraperr: section/wrapperr.md
   - SCRIPTS:
@@ -219,8 +222,9 @@ nav:
           - Romaji Renamer: section/scripts/kometa/romajirenamer.md
           - PATTRMM: section/scripts/kometa/pattrmm.md
       - Standalone Scripts:
-          - Placeholder: ""
-  # BULLMOOSE AND CHAZ
+          - JBOPS: section/scripts/JBOPS.md
+          - Bullmoose20 Plex Scripts: section/scripts/bullmoose20.md
+          - ChazLarson Plex and Kometa Scripts: section/scripts/chz.md
   - DOWNLOADING POSTERS:
       - Overview: section/posters/posteroverview.md
       - Kometa Poster Helpers:
@@ -228,4 +232,4 @@ nav:
       - Standalone Poster Scripts:
           - Plex Poster Set Helper: section/posters/plex-poster-set-helper.md
           - Daps: section/posters/daps.md
-### qBitManager  Upgradinatorr   reTraktArr   JBOPS
+          - Posterizarr: section/posters/posterizarr.md
