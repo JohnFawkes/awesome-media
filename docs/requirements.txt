@@ -1,4 +1,4 @@
-git+https://${TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
 #mkdocs-material
 mkdocs-glightbox
 mkdocs-include-markdown-plugin
@@ -55,4 +55,4 @@ mkdocs-rtd-dropdown
 neoteroi-mkdocs
 markdown-include
 pyyaml
-fontawesome-markdown @ https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+fontawesome-markdown@https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
