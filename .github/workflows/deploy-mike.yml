@@ -52,6 +52,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r docs/requirements.txt
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
+          INSIDERS: true
+          CI: true
 
       - name: Determine versioning parameters
         id: determine-versioning
@@ -84,3 +89,8 @@ jobs:
             --push \
             ${{ env.PH_DOCS_VERSION }} \
             ${{ env.PH_DOCS_ALIAS }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
+          INSIDERS: true
+          CI: true
