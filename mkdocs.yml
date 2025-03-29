@@ -236,7 +236,7 @@ nav:
       - Standalone Scripts:
           - JBOPS: section/scripts/JBOPS.md
           - Bullmoose20 Plex Scripts: section/scripts/bullmoose20.md
-          - ChazLarson Plex and Kometa Scripts: section/scripts/chz.md
+          - ChazLarson Plex and Kometa Scripts: section/scripts/chaz.md
   - DOWNLOADING POSTERS:
       - Overview: section/posters/posteroverview.md
       - Kometa Poster Helpers:
