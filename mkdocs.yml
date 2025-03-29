@@ -26,8 +26,11 @@ theme:
     - search.share
     - navigation.instant
     - navigation.instant.progress
+    - navigation.instant.prefetch
+    - navigation.path
     - navigation.indexes
     - toc.integrate
+    - toc.follow
     - content.tooltips
   language: en
   icon:
@@ -123,17 +126,11 @@ plugins:
       enabled: !ENV INSIDERS
       plugins:
         - optimize:
-            enabled: true
+            enabled: !ENV [CI, false]
             cache: true
             cache_dir: .cache/plugins/optimize
-            optimize_png: true
-            optimize_png_speed: 4
-            optimize_png_strip: true
-            optimize_jpg: true
-            optimize_jpg_quality: 60
-            optimize_jpg_progressive: true
-            print_gain: true
-            print_gain_summary: true
+            optimize_jpg_quality: 80
+            print_gain: false
 
 extra:
   generator: true

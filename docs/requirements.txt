@@ -56,3 +56,4 @@ neoteroi-mkdocs
 markdown-include
 pyyaml
 fontawesome-markdown@https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+pngquant
