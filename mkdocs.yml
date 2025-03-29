@@ -56,7 +56,9 @@ theme:
 hooks:
   - hooks/copyright.py
 plugins:
-  - macros: {}
+  - macros:
+      module_name: main
+      on_error_fail: false
   - tags:
       enabled: true
       tags: true
@@ -118,6 +120,7 @@ plugins:
             cache_dir: .cache/plugins/git-commiters
             repository: johnfawkes/awesome-media
             branch: main
+            token: !ENV GH_TOKEN
         - git-authors:
             enabled: true
 
