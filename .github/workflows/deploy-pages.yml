@@ -26,8 +26,13 @@ jobs:
       - run: pip install -r docs/requirements.txt
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          INSIDERS: true
+          CI: true
       - name: Deploy mkdocs
         run: mkdocs gh-deploy --config-file mkdocs.yml --force
+        env:
+          INSIDERS: true
+          CI: true
 
   deploy_mkdocs:
     needs: build_mkdocs
