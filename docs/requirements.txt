@@ -32,7 +32,6 @@ mkdocs-enumerate-headings-plugin
 mkdocs-exclude
 mkdocs-embed-external-markdown
 mkdocs-git-authors-plugin
-mkdocs-git-committers-plugin
 mkdocs-git-revision-date-localized-plugin
 mkdocs-img2fig-plugin
 mkdocs-kroki-plugin
@@ -50,11 +49,9 @@ mkdocs-render-swagger-plugin
 mkdocs-versioning
 mkdocs-with-confluence
 mkdocstrings
-mkdocs-material
 mkdocs-rtd-dropdown
 neoteroi-mkdocs
 markdown-include
 pyyaml
 fontawesome-markdown@https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
-pngquant
 mkdocs-material[imaging]

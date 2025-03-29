@@ -27,6 +27,7 @@ jobs:
       - run: pip install -r docs/requirements.txt
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
           INSIDERS: true
           CI: true
       - name: Deploy mkdocs
