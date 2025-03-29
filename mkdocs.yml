@@ -57,6 +57,7 @@ plugins:
   - tags:
       enabled: true
       tags: true
+      tags_slugify_separator: "-"
       tags_slugify_format: "tag:{slug}"
       tags_hierarchy: true
       tags_name_property: tags
@@ -89,9 +90,6 @@ plugins:
       debug_grid: true
       debug_grid_step: 32
       debug_color: yellow
-  - tags:
-      enabled: true
-      tags_slugify_separator: "-"
   - open-in-new-tab
 
   # CI=true mkdocs build
