@@ -56,7 +56,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          clone-depth: full
 
       - name: Install Python Packages
         uses: actions/setup-python@v5
@@ -90,7 +89,7 @@ jobs:
           # We will need to create a user for this at some point
           git config user.name JohnFawkes
           git config user.email skaterdudebradley@gmail.com
-          git fetch --no-tags --prune --depth=1 main +refs/heads/gh-pages:refs/remotes/origin/gh-pages
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
           mike deploy \
             --update-aliases \
             --push \
