@@ -1,0 +1,104 @@
+# Workflow inspiration and adaptation came from Andruino-Cli
+# https://github.com/arduino/arduino-cli/blob/master/.github/workflows/deploy-cobra-mkdocs-versioned-poetry.yml
+
+name: Deploy
+
+env:
+  PYTHON_VERSION: "3.9"
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
+  INSIDERS: true
+  CI: true
+
+on:
+  push:
+    branches:
+      # Branch to base "dev" website on.
+      - main
+      #      # Release branches have names like 0.8.x, 0.9.x, ...
+      - "[0-9]+.[0-9]+.x"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+  repository_dispatch:
+  create:
+
+jobs:
+  pre-publish:
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.determination.outputs.result }}
+    steps:
+      - name: Determine if documentation should be published on this workflow run
+        id: determination
+        run: |
+          RELEASE_BRANCH_REGEX="refs/heads/[0-9]+.[0-9]+.x"
+          if [[ "${{ github.event_name }}" == "push" || ( "${{ github.event_name }}" == "create" && "${{ github.ref }}" =~ $RELEASE_BRANCH_REGEX ) ]]; then
+            RESULT="true"
+          else
+            RESULT="false"
+          fi
+
+          echo "result=$RESULT" >> $GITHUB_OUTPUT
+          echo "Deploy: $RESULT"
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: pre-publish
+    if: needs.pre-publish.outputs.result == 'true'
+
+    steps:
+      - name: Install pngquant
+        run: sudo apt install pngquant
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Python Packages
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r docs/requirements.txt
+
+      #      - name: Determine versioning parameters
+      # id: determine-versioning
+      # run: |
+      #   # Read the first line from the VERSION file
+      #   LINE=$(head -n 1 ./VERSION)
+
+      #   # Extract version and alias using parameter expansion
+      #   VERSION="${LINE%%|*}"
+      #   ALIAS="${LINE#*|}"
+
+      #   # Print the extracted values for verification
+      #   echo "Version: $VERSION"
+      #   echo "Alias: $ALIAS"
+
+      #   echo "PH_DOCS_VERSION=$VERSION" >> $GITHUB_ENV
+      #   echo "PH_DOCS_ALIAS=$ALIAS" >> $GITHUB_ENV
+      - name: Determine versioning parameters
+        id: determine-versioning
+        run: echo "data=$(python docs/siteversion/siteversion.py)" >> $GITHUB_OUTPUT
+
+      - name: Deploy
+        if: fromJson(steps.determine-versioning.outputs.data).version != null
+        run: |
+          # Publishing implies creating a git commit on the gh-pages branch
+          git config user.name JohnFawkes
+          git config user.email skaterdudebradley@gmail.com
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
+          mike set-default --push latest
+          mike deploy \
+            --update-aliases \
+            --push \
+            --remote origin \
+            ${{ fromJson(steps.determine-versioning.outputs.data).version }} \
+            ${{ fromJson(steps.determine-versioning.outputs.data).alias }}
+
+#            ${{ env.PH_DOCS_VERSION }} \
+#            ${{ env.PH_DOCS_ALIAS }}
