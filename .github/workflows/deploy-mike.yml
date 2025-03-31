@@ -99,6 +99,7 @@ jobs:
             --remote origin \
             ${{ fromJson(steps.determine-versioning.outputs.data).version }} \
             ${{ fromJson(steps.determine-versioning.outputs.data).alias }}
+          mike set-default --push latest
 
 #            ${{ env.PH_DOCS_VERSION }} \
 #            ${{ env.PH_DOCS_ALIAS }}
