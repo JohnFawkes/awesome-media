@@ -93,6 +93,7 @@ jobs:
           git config user.email skaterdudebradley@gmail.com
           git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
           mike deploy \
+            --set-default \
             --update-aliases \
             --push \
             --remote origin \
