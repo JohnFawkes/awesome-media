@@ -92,7 +92,7 @@ jobs:
           git config user.name JohnFawkes
           git config user.email skaterdudebradley@gmail.com
           git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
-          mike delete --all --push
+          mike delete --all --push --allow-empty
 
 #          mike set-default --push latest
 #          mike deploy \
