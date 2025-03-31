@@ -32,6 +32,7 @@ theme:
     - toc.integrate
     - toc.follow
     - content.tooltips
+    - version-dropdown
   language: en
   icon:
     logo: material/video-vintage
