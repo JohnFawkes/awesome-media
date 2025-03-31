@@ -92,14 +92,16 @@ jobs:
           git config user.name JohnFawkes
           git config user.email skaterdudebradley@gmail.com
           git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
-          mike set-default --push latest
-          mike deploy \
-            --update-aliases \
-            --push \
-            --remote origin \
-            ${{ fromJson(steps.determine-versioning.outputs.data).version }} \
-            ${{ fromJson(steps.determine-versioning.outputs.data).alias }}
-          mike set-default --push latest
+          mike delete --all --push
+
+#          mike set-default --push latest
+#          mike deploy \
+#            --update-aliases \
+#            --push \
+#            --remote origin \
+#            ${{ fromJson(steps.determine-versioning.outputs.data).version }} \
+#            ${{ fromJson(steps.determine-versioning.outputs.data).alias }}
+#          mike set-default --push latest
 
 #            ${{ env.PH_DOCS_VERSION }} \
 #            ${{ env.PH_DOCS_ALIAS }}
