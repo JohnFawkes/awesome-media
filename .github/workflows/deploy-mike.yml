@@ -69,22 +69,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r docs/requirements.txt
 
-      #      - name: Determine versioning parameters
-      # id: determine-versioning
-      # run: |
-      #   # Read the first line from the VERSION file
-      #   LINE=$(head -n 1 ./VERSION)
-
-      #   # Extract version and alias using parameter expansion
-      #   VERSION="${LINE%%|*}"
-      #   ALIAS="${LINE#*|}"
-
-      #   # Print the extracted values for verification
-      #   echo "Version: $VERSION"
-      #   echo "Alias: $ALIAS"
-
-      #   echo "PH_DOCS_VERSION=$VERSION" >> $GITHUB_ENV
-      #   echo "PH_DOCS_ALIAS=$ALIAS" >> $GITHUB_ENV
       - name: Determine versioning parameters
         id: determine-versioning
         run: echo "data=$(python docs/siteversion/siteversion.py)" >> $GITHUB_OUTPUT
@@ -102,29 +86,3 @@ jobs:
             --remote origin \
             ${{ fromJson(steps.determine-versioning.outputs.data).version }} \
             ${{ fromJson(steps.determine-versioning.outputs.data).alias }} --allow-empty
-
-  #          mike set-default --push latest --allow-empty
-
-  #            ${{ env.PH_DOCS_VERSION }} \
-  #            ${{ env.PH_DOCS_ALIAS }}
-
-  deploy_mkdocs:
-    needs: publish
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "."
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
