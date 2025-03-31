@@ -159,8 +159,6 @@ extra:
       name: JohnFawkes on GitHub
   version:
     provider: mike
-    alias: true
-    default: latest
 
 markdown_extensions:
   - admonition
