@@ -86,3 +86,4 @@ jobs:
             --remote origin \
             ${{ fromJson(steps.determine-versioning.outputs.data).version }} \
             ${{ fromJson(steps.determine-versioning.outputs.data).alias }} --allow-empty
+          mike set-default latest --push
