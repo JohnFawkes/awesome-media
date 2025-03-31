@@ -24,8 +24,6 @@ permissions:
 jobs:
   build_mkdocs:
     runs-on: ubuntu-latest
-    needs: pre-publish
-    if: needs.pre-publish.outputs.result == 'true'
 
     steps:
       - name: Install pngquant
