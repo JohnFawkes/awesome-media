@@ -105,7 +105,7 @@ jobs:
   #            ${{ env.PH_DOCS_ALIAS }}
 
   deploy_mkdocs:
-    needs: build_mkdocs
+    needs: publish
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
