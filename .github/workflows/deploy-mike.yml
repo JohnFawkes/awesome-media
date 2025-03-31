@@ -23,6 +23,10 @@ on:
   workflow_dispatch:
   repository_dispatch:
   create:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   pre-publish:
