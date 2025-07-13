@@ -1,1 +1,3 @@
-https://github.com/fscorrupt/Posterizarr
+# POSTERIZARR
+
+[Posterizarr](https://github.com/fscorrupt/Posterizarr) This PowerShell script automates generating images for your Plex, Jellyfin, or Emby library by using media info like titles, seasons, and episodes. It fetches artwork from Fanart.tv, TMDB, TVDB, Plex, and IMDb, focusing on specific languages - defaulting to textless images and falling back to English if unavailable. Users can choose between textless or text posters. The script supports both automatic bulk downloads and manual mode for custom artwork that can’t be retrieved automatically.
