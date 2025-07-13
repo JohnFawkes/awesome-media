@@ -1,0 +1,160 @@
+
+- identifier: 0BSD
+  name: BSD Zero-Clause Licence
+  url: https://spdx.org/licenses/0BSD.html
+
+- identifier: AAL
+  name: Attribution Assurance License
+  url: https://spdx.org/licenses/AAL.html
+
+- identifier: AGPL-3.0
+  name: GNU Affero General Public License 3.0
+  url: https://spdx.org/licenses/AGPL-3.0.html
+
+- identifier: Apache-2.0
+  name: Apache, Version 2.0
+  url: https://spdx.org/licenses/Apache-2.0.html
+
+- identifier: APSL-2.0
+  name: Apple Public Source License, Version 2.0
+  url: https://spdx.org/licenses/APSL-2.0.html
+
+- identifier: Artistic-2.0
+  name: Artistic License Version 2.0
+  url: https://spdx.org/licenses/Artistic-2.0.html
+
+- identifier: Beerware
+  name: Beerware License
+  url: https://spdx.org/licenses/Beerware.html
+
+- identifier: BSD-2-Clause
+  name: BSD 2-clause "Simplified"
+  url: https://spdx.org/licenses/BSD-2-Clause.html
+
+- identifier: BSD-2-Clause-FreeBSD
+  name: BSD 2-Clause FreeBSD License
+  url: https://spdx.org/licenses/BSD-2-Clause-FreeBSD.html
+
+- identifier: BSD-3-Clause
+  name: BSD 3-Clause "New" or "Revised"
+  url: https://spdx.org/licenses/BSD-3-Clause.html
+
+- identifier: BSD-3-Clause-Attribution
+  name: BSD with attribution
+  url: https://spdx.org/licenses/BSD-3-Clause-Attribution.html
+
+- identifier: BSD-4-Clause
+  name: BSD 4-clause "Original"
+  url: https://spdx.org/licenses/BSD-4-Clause.html
+
+- identifier: CAL-1.0
+  name: Cryptographic Autonomy License 1.0
+  url: https://spdx.org/licenses/CAL-1.0.html
+
+- identifier: CC-BY-SA-3.0
+  name: Creative Commons Attribution-ShareAlike 3.0 License
+  url: https://spdx.org/licenses/CC-BY-SA-3.0.html
+
+- identifier: CC-BY-SA-4.0
+  name: Creative Commons Attribution-ShareAlike 4.0 License
+  url: https://spdx.org/licenses/CC-BY-SA-4.0.html
+
+- identifier: CC0-1.0
+  name: Public Domain/Creative Common Zero 1.0
+  url: https://spdx.org/licenses/CC0-1.0.html
+
+- identifier: CDDL-1.0
+  name: Common Development and Distribution License
+  url: https://spdx.org/licenses/CDDL-1.0.html
+
+- identifier: CECILL-B
+  name: CEA CNRS INRIA Logiciel Libre
+  url: https://spdx.org/licenses/CECILL-B.html
+
+- identifier: CPAL-1.0
+  name: Common Public Attribution License Version 1.0
+  url: https://spdx.org/licenses/CPAL-1.0.html
+
+- identifier: ECL-2.0
+  name: Educational Community License, Version 2.0
+  url: https://spdx.org/licenses/ECL-2.0.html
+
+- identifier: EPL-1.0
+  name: Eclipse Public License, Version 1.0
+  url: https://spdx.org/licenses/EPL-1.0.html
+
+- identifier: EPL-2.0
+  name: Eclipse Public License, Version 2.0
+  url: https://spdx.org/licenses/EPL-2.0.html
+
+- identifier: EUPL-1.2
+  name: European Union Public License 1.2
+  url: https://spdx.org/licenses/EUPL-1.2.html
+
+- identifier: GPL-1.0
+  name: GNU General Public License 1.0
+  url: https://spdx.org/licenses/GPL-1.0.html
+
+- identifier: GPL-2.0
+  name: GNU General Public License 2.0
+  url: https://spdx.org/licenses/GPL-2.0.html
+
+- identifier: GPL-3.0
+  name: GNU General Public License 3.0
+  url: https://spdx.org/licenses/GPL-3.0.html
+
+- identifier: IPL-1.0
+  name: IBM Public License
+  url: https://spdx.org/licenses/IPL-1.0.html
+
+- identifier: ISC
+  name: Internet Systems Consortium License
+  url: https://spdx.org/licenses/ISC.html
+
+- identifier: LGPL-2.1
+  name: Lesser General Public License 2.1
+  url: https://spdx.org/licenses/LGPL-2.1.html
+
+- identifier: LGPL-3.0
+  name: Lesser General Public License 3.0
+  url: https://spdx.org/licenses/LGPL-3.0.html
+
+- identifier: MIT
+  name: MIT License
+  url: https://spdx.org/licenses/MIT.html
+
+- identifier: MPL-1.1
+  name: Mozilla Public License Version 1.1
+  url: https://spdx.org/licenses/MPL-1.1.html
+
+- identifier: MPL-2.0
+  name: Mozilla Public License
+  url: https://spdx.org/licenses/MPL-2.0.html
+
+- identifier: OSL-3.0
+  name: Open Software License 3.0
+  url: https://spdx.org/licenses/OSL-3.0.html
+
+- identifier: Sendmail
+  name: Sendmail License
+  url: https://spdx.org/licenses/Sendmail.html
+
+- identifier: Ruby
+  name: Ruby License
+  url: https://spdx.org/licenses/Ruby.html
+
+- identifier: Unlicense
+  name: The Unlicense
+  url: https://spdx.org/licenses/Unlicense.html
+
+- identifier: WTFPL
+  name: Do What the Fuck You Want to Public License
+  url: https://spdx.org/licenses/WTFPL.html
+
+- identifier: Zlib
+  name: Zlib/libpng License
+  url: https://spdx.org/licenses/Zlib.html
+
+- identifier: ZPL-2.0
+  name: Zope Public License 2.0
+  url: https://spdx.org/licenses/ZPL-2.0.html
