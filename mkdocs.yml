@@ -150,10 +150,10 @@ extra:
   analytics:
     provider: plausible
     domain: awesome-media.net
-    src: "https://analytics.servernation.xyz/js/script.js"
+    src: "https://analytics.awesome-media.net/js/script.js"
     #: If you’re using the privacy plugin or hosting the script
     #: on another domain, uncomment and specify API path here:
-    api: "https:// analytics.servernation.xyz/api/event"
+    api: "https://analytics.awesome-media.net/api/event"
   social:
     - icon: fontawesome/brands/discord
       link: "https://discordapp.com/users/732333413008277504"
