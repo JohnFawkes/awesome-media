@@ -1,1 +1,5 @@
+---
+title: Upgradinatorr
+---
+
 https://github.com/angrycuban13/Just-A-Bunch-Of-Starr-Scripts/tree/main/Upgradinatorr

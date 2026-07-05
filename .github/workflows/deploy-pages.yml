@@ -1,11 +1,4 @@
-name: Build GitHub Pages
-
-env:
-  PYTHON_VERSION: "3.9"
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-  MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
-  INSIDERS: true
-  CI: true
+name: Deploy Docusaurus site
 
 on:
   push:
@@ -17,52 +10,47 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build_mkdocs:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Install pngquant
-        run: sudo apt install pngquant
-
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
+          node-version: 20
+          cache: npm
 
-      - name: Install Python Packages
-        uses: actions/setup-python@v5
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
-      - run: pip install -r docs/requirements.txt
+          path: build
 
-      - name: Deploy mkdocs
-        run: mkdocs gh-deploy --config-file mkdocs.yml --force
-
-  deploy_mkdocs:
-    needs: build_mkdocs
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "."
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,7 +1,8 @@
 ---
-hide:
-  - toc
+hide_table_of_contents: true
+title: Awesome Media
 ---
+
 # Welcome to Awesome-Media
 
 Awesome Media is here to compile the best and most awesome self hosted and hosted tools to make your media servers awesome!!
