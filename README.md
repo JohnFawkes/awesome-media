@@ -97,11 +97,12 @@ Our documentation is organized into these main categories:
 
 ## 🔧 Local Development
 
-Want to contribute to the documentation or run it locally?
+Want to contribute to the documentation or run it locally? This site is built with
+[Docusaurus](https://docusaurus.io/).
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Node.js 20 or higher
 - Git
 
 ### Setup
@@ -112,23 +113,24 @@ git clone https://github.com/johnfawkes/awesome-media.git
 cd awesome-media
 
 # Install dependencies
-pip install -r docs/requirements.txt
+npm install
 
-# Serve locally
-mkdocs serve
+# Serve locally with hot reload
+npm start
 
 # Build static site
-mkdocs build
+npm run build
 ```
 
-The documentation will be available at `http://localhost:8000`
+The documentation will be available at `http://localhost:3000`
 
 ### Documentation Structure
 
 - `docs/` - Main documentation content
-- `mkdocs.yml` - MkDocs configuration
-- `overrides/` - Custom theme modifications
-- `hooks/` - Build hooks and plugins
+- `docusaurus.config.js` - Docusaurus site configuration
+- `sidebars.js` - Sidebar/navigation structure
+- `src/` - Custom styles and pages
+- `static/` - Static assets (images, favicon, CNAME)
 
 ## 🤝 Contributing
 
