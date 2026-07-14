@@ -150,7 +150,7 @@ extra:
   analytics:
     provider: plausible
     domain: awesome-media.net
-    src: "https://analytics.servernation.xyz/js/script.js"
+    property: "https://analytics.servernation.xyz/js/script.js"
     #: If you’re using the privacy plugin or hosting the script
     #: on another domain, uncomment and specify API path here:
     api: "https://analytics.servernation.xyz/api/event"
