@@ -4,7 +4,6 @@ env:
   PYTHON_VERSION: "3.9"
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.GH_TOKEN }}
-  INSIDERS: true
   CI: true
 
 on:
@@ -22,29 +21,7 @@ permissions:
   id-token: write
 
 jobs:
-  build_mkdocs:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Install pngquant
-        run: sudo apt install pngquant
-
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install Python Packages
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-      - run: pip install -r docs/requirements.txt
-
-      - name: Deploy mkdocs
-        run: mkdocs gh-deploy --config-file mkdocs.yml --force
-
   deploy_mkdocs:
-    needs: build_mkdocs
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -55,14 +32,12 @@ jobs:
         
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: gh-pages
 
       - name: Zensical Build
         uses: actions/setup-python@v6
         with:
           python-version: 3.x
-      - run: pip install zensical
+      - run: pip install -r docs/requirements.txt
       - run: zensical build --clean
 
       - name: Upload artifact
