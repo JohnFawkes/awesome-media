@@ -1,5 +1,4 @@
-git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material.git
-#mkdocs-material
+zensical
 mkdocs-glightbox
 mkdocs-include-markdown-plugin
 jinja2
