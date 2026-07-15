@@ -21,15 +21,12 @@ permissions:
   id-token: write
 
 jobs:
-  deploy_mkdocs:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v6
-        
+
       - name: Checkout
         uses: actions/checkout@v7
 
@@ -40,11 +37,48 @@ jobs:
       - run: pip install -r docs/requirements.txt
       - run: zensical build --clean
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: "./site"
 
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: "./site"
+          retention-days: 1
+
+  deploy_mkdocs:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  deploy_shock_hosting:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: "./site"
+
+      - name: Deploy to Shock Hosting (cPanel) via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SHOCK_FTP_SERVER }}
+          username: ${{ secrets.SHOCK_FTP_USERNAME }}
+          password: ${{ secrets.SHOCK_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./site/
+          server-dir: ${{ secrets.SHOCK_FTP_SERVER_DIR }}
+          dangerous-clean-slate: false
